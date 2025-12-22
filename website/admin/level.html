@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-black min-h-screen flex">
+    <!-- Sidebar sama dengan Dashboard -->
+    <aside class="w-64 border-r border-gray-100 p-6 flex flex-col gap-4">
+        <div class="font-black text-xl mb-8 flex items-center gap-2">
+            <div class="w-8 h-8 bg-blue-600 rounded-lg"></div>
+            ADPL ADMIN
+        </div>
+        <nav class="flex-1 space-y-2">
+            <a href="dashboard.html" class="flex items-center gap-3 p-4 text-gray-400 hover:bg-gray-50 rounded-2xl">
+                <i data-lucide="layout-dashboard" class="w-5 h-5"></i> Dashboard
+            </a>
+            <a href="puzzle.html" class="flex items-center gap-3 p-4 text-gray-400 hover:bg-gray-50 rounded-2xl">
+                <i data-lucide="image" class="w-5 h-5"></i> Konten Puzzle
+            </a>
+            <a href="level.html" class="flex items-center gap-3 p-4 bg-blue-50 text-blue-600 rounded-2xl font-bold">
+                <i data-lucide="bar-chart" class="w-5 h-5"></i> Level Puzzle
+            </a>
+            <a href="akun-pemain.html" class="flex items-center gap-3 p-4 text-gray-400 hover:bg-gray-50 rounded-2xl">
+                <i data-lucide="users" class="w-5 h-5"></i> Akun Pemain
+            </a>
+        </nav>
+    </aside>
+
+    <main class="flex-1 p-10 bg-gray-50/30">
+        <h1 class="text-3xl font-black mb-10 tracking-tight">Level Puzzle</h1>
+
+        <div class="bg-white rounded-3xl border border-gray-100 overflow-hidden shadow-sm">
+            <table class="w-full text-left">
+                <thead class="bg-gray-50 border-b border-gray-50">
+                    <tr>
+                        <th class="px-8 py-5 text-xs font-bold uppercase text-gray-400">Tingkat Kesulitan</th>
+                        <th class="px-8 py-5 text-right text-xs font-bold uppercase text-gray-400">Aksi</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-50">
+                    <tr class="hover:bg-gray-50/50 transition">
+                        <td class="px-8 py-6 font-semibold">Mudah (3x3)</td>
+                        <td class="px-8 py-6 text-right">
+                            <a href="edit_level_popup.html" class="inline-flex items-center justify-center w-10 h-10 bg-blue-50 text-blue-600 rounded-xl hover:bg-blue-100 transition">
+                                <i data-lucide="info" class="w-5 h-5"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-gray-50/50 transition">
+                        <td class="px-8 py-6 font-semibold">Sedang (4x4)</td>
+                        <td class="px-8 py-6 text-right">
+                            <a href="edit_level_popup.html" class="inline-flex items-center justify-center w-10 h-10 bg-blue-50 text-blue-600 rounded-xl hover:bg-blue-100 transition">
+                                <i data-lucide="info" class="w-5 h-5"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <script>lucide.createIcons();</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-black/60 flex items-center justify-center min-h-screen p-4 backdrop-blur-md">
+    <div class="bg-white w-full max-w-sm rounded-[3rem] shadow-2xl p-10 text-center animate-in fade-in slide-in-from-bottom-10 duration-500">
+        <div class="w-20 h-20 bg-red-50 text-red-500 rounded-full flex items-center justify-center mx-auto mb-8">
+            <i data-lucide="alert-circle" class="w-10 h-10"></i>
+        </div>
+        
+        <h3 class="text-2xl font-black mb-4 leading-tight">Apakah anda ingin keluar?</h3>
+        <p class="text-gray-400 text-sm mb-12">Anda akan diarahkan kembali ke halaman login utama.</p>
+        
+        <div class="space-y-4">
+            <a href="splash.html" class="block w-full py-5 bg-red-500 text-white rounded-[1.5rem] font-black uppercase tracking-[0.2em] shadow-xl shadow-red-100 hover:bg-red-600 transition active:scale-95">
+                YA
+            </a>
+            <a href="dashboard.html" class="block w-full py-4 text-gray-400 font-bold hover:text-gray-600 transition">
+                Sentuh bagian lain untuk batal
+            </a>
+        </div>
+    </div>
+    <script>lucide.createIcons();</script>
+</body>
+</html>

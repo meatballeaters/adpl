@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Puzzle</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="puzzle-logic.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        // Inisialisasi papan saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', () => {
+            // Tambahkan pengecekan untuk memastikan window.gameState sudah ada.
+            // Jika modul belum dimuat (walaupun jarang), kita tunggu sejenak.
+            if (typeof window.gameState === 'undefined') {
+                console.error("Error: window.gameState belum didefinisikan. Menunggu.");
+                setTimeout(initializeGame, 100);
+                return;
+            }
+            initializeGame();
+        });
+        function initializeGame() {
+            // Pastikan state sudah terisi
+            if (window.gameState.puzzle.length === 0) {
+                 window.initializePuzzle(3);
+            }
+            window.renderPuzzleBoard();
+            window.startTimer();
+        }
+        // Menghentikan timer saat halaman akan ditutup/navigasi
+        window.onbeforeunload = function() {
+            window.stopTimer();
+        };
+    </script>
+</head>
+<body class="min-h-screen flex flex-col items-center p-4">
+    <div class="w-full max-w-lg p-4 sm:p-6 bg-white rounded-xl shadow-2xl">
+        <!-- Tombol Pause -->
+        <div class="flex justify-end items-center mb-4">
+            <button onclick="openModal('pause-modal')" class="text-xl text-gray-600 hover:text-gray-800 transition duration-150 p-2">
+                <i class="fas fa-pause"></i>
+            </button>
+        </div>        
+        <div class="flex justify-around items-center text-center p-3 bg-blue-50 rounded-xl mb-4 shadow-inner">
+            <div>
+                <span id="game-moves" class="text-3xl font-bold text-blue-800">00</span>
+                <p class="text-sm text-gray-600">Langkah</p>
+            </div>
+            <div class="border-l border-r border-blue-200 px-4">
+                <span id="game-duration" class="text-3xl font-bold text-blue-800">00:00</span>
+                <p class="text-sm text-gray-600">Durasi</p>
+            </div>
+        </div>
+        <div id="puzzle-board" class="puzzle-board">
+        </div>
+        <div class="text-center mt-4 space-y-2">
+            <p class="text-sm text-gray-500">susunan potongan puzzle:</p>
+            <a href="gambar-utuh.html" target="_blank" class="text-blue-600 hover:underline font-semibold">Lihat Gambar Utuh</a>
+        </div>
+    </div>
+    <div id="pause-modal" class="fixed inset-0 z-50 hidden items-center justify-center modal-overlay">
+        <div class="bg-white p-6 sm:p-8 rounded-2xl w-11/12 max-w-xs shadow-2xl flex flex-col items-center space-y-4">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4">JEDA</h2>
+            <button onclick="closeModal('pause-modal')" class="button-primary w-full">Lanjut Permainan</button>
+            <button onclick="openModal('exit-confirm-modal')" class="button-secondary w-full">Tinggalkan Permainan</button>
+            <a href="laporan.html" class="w-full">
+                <button class="button-secondary w-full">Laporkan Masalah</button>
+            </a>
+        </div>
+    </div>
+
+    <div id="exit-confirm-modal" class="fixed inset-0 z-50 hidden items-center justify-center modal-overlay">
+        <div class="bg-white p-6 sm:p-8 rounded-2xl w-11/12 max-w-xs shadow-2xl flex flex-col items-center">
+            <div class="bg-red-500 text-white text-5xl w-20 h-20 flex items-center justify-center rounded-full mb-6">
+                <i class="fas fa-check"></i>
+            </div>
+            <p class="text-xl font-semibold text-gray-700 mb-6 text-center">Apakah anda yakin ingin meninggalkan permainan?</p>
+            <div class="flex justify-around w-full space-x-4">
+                <button onclick="exitGame()" class="bg-red-500 text-white font-semibold py-3 px-6 rounded-xl transition duration-200 shadow-md hover:bg-red-700 w-full">Ya</button>
+                <button onclick="closeModal('exit-confirm-modal'); openModal('pause-modal');" class="bg-green-500 text-white font-semibold py-3 px-6 rounded-xl transition duration-200 shadow-md hover:bg-green-700 w-full">Tidak</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilih Level</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="puzzle-logic.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-4">
+    <div class="w-full max-w-sm p-8 bg-white rounded-xl shadow-2xl text-center">
+        <!-- Tombol Kembali -->
+        <div class="flex justify-start mb-8">
+            <a href="index.html" class="text-xl text-gray-600 hover:text-gray-800 transition duration-150">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+        </div>
+        <h2 class="text-4xl font-bold text-gray-800 mb-8">Pilih Level</h2>
+        <div class="space-y-4">
+            <!-- Tombol Pilihan Level -->
+            <button onclick="selectLevelAndStart(3)" class="bg-green-500 text-white font-semibold py-3 px-6 rounded-xl transition duration-200 shadow-md hover:bg-green-700 w-full">
+                Mudah (3x3)
+            </button>
+            <button onclick="selectLevelAndStart(4)" class="bg-orange-500 text-white font-semibold py-3 px-6 rounded-xl transition duration-200 shadow-md hover:bg-orange-700 w-full">
+                Sedang (4x4)
+            </button>
+            <button onclick="selectLevelAndStart(5)" class="bg-red-500 text-white font-semibold py-3 px-6 rounded-xl transition duration-200 shadow-md hover:bg-red-700 w-full">
+                Sulit (5x5)
+            </button>
+        </div>
+    </div>
+</body>
+</html>
