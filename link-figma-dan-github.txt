@@ -1,0 +1,5 @@
+Link project figma:
+https://www.figma.com/design/D7d8Ewavbq43pxpl9oP4B3/tugas_adpl_23120051?node-id=0-1&t=VGVVaWxLJhndBQOd-1
+
+Link repository github:
+https://github.com/meatballeaters/adpl.git
